@@ -1,0 +1,127 @@
+#Contenant {
+
+	width: 450px;
+	height: 500px;
+	display: flex;
+
+}
+
+#Color {
+	width: 450px;
+	height: 100px;
+	display: flex;	
+}
+
+.ligne {
+	display: flex; /*permet d'aligner les ligne */
+	/*flex-direction: column;*/ /*Modification pour faire des lignes*/
+	margin: 4%;
+}
+
+#ligvisuel {
+	flex-direction: column;
+	margin-left: 40%;
+	left: 50px;
+	margin-top: -37%;
+	margin-bottom: 2%;
+	width: 43%;
+}
+
+#Soluce {
+	margin: -15% 0% 6% 40%;
+}
+
+.ligne {
+
+	display: flex;
+}
+
+
+
+.case {
+	width: 30px;
+	height: 30px;
+	margin: -4% 5% 3% 1%;
+	padding: 8%;
+	
+	background-color: #DCDCDC;  /* Gainsboro */
+	opacity: 95%;
+	border-radius: 15px;
+
+	/*display: flex; 
+	flex-wrap: wrap;
+	justify-content: center;*/
+	
+	box-shadow: 0 3.2px 8.9px rgba(0, 0, 0, 0.141),
+  				0 10.7px 29.9px rgba(0, 0, 0, 0.209),
+  				0 48px 134px rgba(0, 0, 0, 0.35);
+}
+
+
+.cas2 {
+	width: 30px;
+	height: 30px;
+	margin: 1% 4% 3% 4%;
+	padding: 8%;
+	
+	background-color: #DCDCDC;  /* Gainsboro */
+	opacity: 95%;
+	border-radius: 15px;
+
+	/*display: flex; 
+	flex-wrap: wrap;
+	justify-content: center;*/
+	
+	box-shadow: 0 3.2px 8.9px rgba(0, 0, 0, 0.141),
+  				0 10.7px 29.9px rgba(0, 0, 0, 0.209),
+  				0 48px 134px rgba(0, 0, 0, 0.35);
+}
+
+/* Correspond à la case jaune */
+.cas2:nth-child(1) {
+	background-color: yellow;
+}
+
+/* Correspond à la case bleu */
+.cas2:nth-child(2) {
+	background-color: blue;
+}
+
+/* Correspond à la case rouge */
+.cas2:nth-child(3) {
+	background-color: red;
+}
+
+/* Correspond à la case verte */
+.cas2:nth-child(4) {
+	background-color: green;
+}
+
+/* Correspond à la case blanche */
+.cas2:nth-child(5) {
+	background-color: white;
+}
+
+/* Correspond à la case noire */
+.cas2:nth-child(6) {
+	background-color: black;
+}
+
+.cas3 {
+	width: 30px;
+	height: 30px;
+	margin: 1% 4% 3% 4%;
+	padding: 8%;
+	
+	background-color: #DCDCDC;  /* Gainsboro */
+	opacity: 95%;
+	border-radius: 15px;
+
+	/*display: flex; 
+	flex-wrap: wrap;
+	justify-content: center;*/
+	
+	box-shadow: 0 3.2px 8.9px rgba(0, 0, 0, 0.141),
+  				0 10.7px 29.9px rgba(0, 0, 0, 0.209),
+  				0 48px 134px rgba(0, 0, 0, 0.35);
+}

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MasterMind</title>
+
+	<meta charset="utf-8">
+
+	<link rel="shortcut icon" type="image/x-icon" href="./img/logo/icone.png">
+
+	<link rel="stylesheet" type="text/css" href="./CSS/index_template.css">
+	<link rel="stylesheet" type="text/css" href="./CSS/MstrMnd_temp.css">
+
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script> <!-- Lie le JQery -->
+
+</head>
+<body onload="RandomNBR(); RandomColor();">
+	<header id="HBody" name="HBody" class="header__bg">
+		<img src="./img/logo/Carte_visite.png" id="logo1" name="icone" class="logo">
+		<!-- -->
+		<!-- -->
+		<!-- -->
+
+		<nav id="Nav" name="Nav" class="navigation">
+			
+			<div id="DivList" name="Hdr">
+				 
+			 	
+
+			</div>
+
+
+		</nav>
+
+	</header>
+		<!-- -->
+		<!-- -->
+		<!-- -->
+
+	<div id="divPrincipal" name="divPrincipal" class="divArticle">
+
+		<script type="text/javascript">
+			// Fonction pour faire apparaître "Rejourer" en fin de partie
+			//Faire disparaitre le bouton "Commencer"
+
+			function masquer_div(start, Replay)
+			{						
+			  if (document.getElementById('start').style.display ='block') 
+			  {
+			  		//Les touches du jeu apparaissent
+			  		document.getElementById('Color').style.visibility ="visible";//Revoir l'emplacement de l'ajout
+			  																	//Car provoque des problème d'affichage de bordure  
+			       document.getElementById('start').style.display = 'none'; //Cache les blocks
+			       document.getElementById('Replay').style.display = 'block'; //La composition ne se modifie pas
+						       
+						  
+			  } 						  
+			  console.log("Rejouer apparaît");
+
+			  $('#Replay').on('click', function() {
+    				location.reload(); //permet de rafraichir la page
+				});
+
+			}
+
+			//Fonction pour établir le code couleur à trouver.
+			// Note: l'établir pour les deux titre cliquable.
+
+				var tabnbr=[];
+				var tabColor = [];
+
+			function RandomNBR() {
+				
+
+				var x = document.getElementsByName("Scase");
+				var i;
+
+				var nbr;
+
+				//la première partie permet de déterminer une suite de nombre random
+				for (i = 0; i < x.length; i++) {
+					nbr = Math.floor(Math.random() * 4);
+
+					while (tabnbr.includes(nbr)) { // fait en sorte qu'un nombre ne se répète pas.
+						nbr = Math.floor(Math.random() * 4);
+					}
+
+					//x[i].innerHTML=nbr;
+					
+
+					tabnbr.push(nbr);
+					tabColor[i] = RandomColor(x,tabnbr[i]); //relie les nombre à une couleur
+
+					console.log(tabnbr);
+                    console.table(tabnbr);
+                    console.table(tabColor);
+
+                    document.getElementById('S' + i).style.backgroundColor = tabColor[i];//permet à chaque div d'avoir sa couleur
+                    																	//cela sans ajouter une boucle suplémentaire
+					}
+
+					
+				}
+
+
+				
+		
+
+			function RandomColor(x, tabnbr) {
+
+					//fonction supp pour le switch
+					//personnelement, permet de mieux visualiser 
+					//la partie nombre et celle des couleurs.
+					console.log(x);
+					
+
+					switch (tabnbr) {
+						case 0:
+							 return "yellow";
+							break;
+						case 1:
+							return "blue";
+							break;
+						case 2:
+							return "red";
+							break;
+						case 3:
+							return "green";
+							break;
+				}
+
+				
+
+			}
+
+		</script>
+
+		<!--Laisse sa place après avoir cliquer dessus // les div cliquable apparaissent -->
+		<h3 class="titreclick" id="start" style="display:block;"onclick="masquer_div('start, Replay')"> Commencer une partie ?</h3>
+		<!-- Raffraichit la page --> 
+		<h3 class="titreclick" id="Replay"  style="display:none;"> Rejouer ?</h3>
+
+
+	</div>
+
+		<!-- -->
+		<!-- -->
+		<!-- -->
+
+
+
+
+		<!-- -->
+		<!-- -->
+		<!-- -->
+	<div id="Contenant" class="divArticle">
+
+		<div id="lig3" class="ligne">
+				<!-- Correspond à la quatrième ligne -->
+			
+			<div id="12" class="case L3 C3"></div>
+
+			<div id="13" class="case L3 C2"></div>
+
+			<div id="14" class="case L3 C1"></div>
+
+			<div id="15" class="case L3 C0"></div>
+
+		</div>
+
+		<!-- -->
+		<!-- -->
+		<!-- -->
+
+
+
+		<div id="lig2" class="ligne">
+				<!-- Correspond à la troisième ligne -->
+			
+			<div id="8" class="case L2 C3"></div>
+
+			<div id="9" class="case L2 C2"></div>
+
+			<div id="10" class="case L2 C1"></div>
+
+			<div id="11" class="case L2 C0"></div>
+
+		</div>
+
+		<!-- -->
+		<!-- -->
+		<!-- -->
+
+		<div id="lig1" class="ligne"> 
+				<!-- Correspond à la deuxième ligne -->
+			
+			<div id="4" class="case L1 C3"></div>
+
+			<div id="5" class="case L1 C2"></div>
+
+			<div id="6" class="case L1 C1"></div>
+
+			<div id="7" class="case L1 C0"></div>
+
+		</div>
+
+
+
+		<!-- -->
+		<!-- -->
+		<!-- -->
+
+
+
+		<div id="lig0" class="ligne"> <!-- Correspond à la première ligne -->
+			
+			<div id="0" class="case L0 C3"></div>
+
+			<div id="1" class="case L0 C2"></div>
+
+			<div id="2" class="case L0 C1"></div>
+
+			<div id="3" class="case L0 C0"></div>
+
+		</div>
+
+		<!-- -->
+		<!-- -->
+		<!-- -->
+	</div>
+		<!-- -->
+		<!-- -->
+		<!-- -->
+		<!-- Comporte les couleur possible à l'utilisation -->
+
+	<div id="Color" class="divArticle" style="visibility: hidden;"> 
+		<div id="lColo" class="ligne">
+			
+			<div id="Jaune" class="cas2"></div>
+
+			<div id="Bleu" class="cas2"></div>
+
+			<div id="Rouge" class="cas2"></div>
+
+			<div id="Vert" class="cas2"></div>
+		</div>
+
+		<!--	<div id="Blanc" class="cas2"></div>
+
+			<div id="Noir" class="cas2"></div> -->
+	</div>
+
+		<script type="text/javascript">
+			//Fonction JQery pour rendre les div, ici les cases de couleurs, cliquable
+			var n=0; //sert pour la boucle if -> ne pas dépasser les quatre div par ligne
+			var z = 0;//utiliser pour l'id des div.
+			var clrnb =0;// création d'une variable globale pour englober tout les div
+							//incrémenter à chaque clique pour passer d'un div à l'autre.
+			
+
+			
+
+			//
+			$("#Jaune").click(function(){
+
+                          // alert('clic !');
+                        //  $(this).css("background", "yellow"); //s'auto colore
+                        
+                           // colore l'id inscrit
+                           document.getElementById(clrnb).style.backgroundColor="yellow";
+                           clrnb++;
+                        	
+                        	
+
+                          console.log("Colore le div selectionner en jaune.;");
+
+                           });
+			
+			//
+			$("#Bleu").click(function(){
+
+                          // alert('clic !');
+                          //$(this).css("background", "blue");
+                          document.getElementById(clrnb).style.backgroundColor="blue";
+                           clrnb++;
+                          console.log("Colore le div selectionner en bleu.");
+
+                           });
+			//
+			$("#Rouge").click(function(){
+
+                          // alert('clic !');
+                          //$(this).css("background", "red");
+                          document.getElementById(clrnb).style.backgroundColor="red";
+                           clrnb++;
+                          console.log("Colore le div selectionner en rouge.");
+
+                           });
+			//
+			$("#Vert").click(function(){
+
+                          // alert('clic !');
+                          //$(this).css("background", "green");
+                          document.getElementById(clrnb).style.backgroundColor="green";
+                           clrnb++;
+                          console.log("Colore le div selectionner en vert.");
+
+                           });
+			//click général
+			$(".cas2").click(function(){
+
+                          // placer en dernier pour que 
+                          var nbcorrect=0;
+                          n++;
+
+                          if ((n%4) == 0){
+
+                          	for (var i = 0; i < 4; i++) {
+                          		//console.log("BIM");
+								
+                          	//	document.getElementById("3").style.border = "solid 5px white";
+                          	//	console.log(document.getElementById(z))
+                          	//boucle visualisant chaque des quatre div d'une ligne pour vérifié si elles
+                          	//correspondent au code à trouver.
+								if (document.getElementById(z).style.backgroundColor == document.getElementById('S' + i).style.backgroundColor) {
+									//Vérifie si les div proposer corresponde à la couleur des div du code.
+										nbcorrect++; //s'incrémente à chaque bonne réponse -> sert pour la victoire/défaite
+										//ajoute une bordure en cas de bonne réponse
+										document.getElementById(z).style.border = "solid 5px white";
+										console.log("BOUM");
+								}
+								console.log(z);
+								z++;
+							}
+
+							//console.log("coucou");
+                          }
+
+                          if(nbcorrect == 4){
+                          	//fenêtre pop-up en cas de victoire
+                          	alert("Vous avez gagné !");
+                          	//console.log("gagné !");
+                          }else if ((z == 16) && (nbcorrect != 4)){
+                          alert("Vous avez perdue");
+                          //console.log("perdu !");
+                          //le div avec la réponse doit s'afficher.
+                           document.getElementById('Soluce').style.visibility ="visible";
+                          }
+                          
+                          //console.log(n);
+
+            });
+
+		</script>
+	</div>
+
+
+		<!-- -->
+		<!-- -->
+		<!-- -->
+		<!-- Di contenant le code à trouvers -->
+	<div id="Soluce" class="divArticle" style="visibility: hidden;"> 
+		<div id="lsoluce" class="ligne">
+			
+			<div id="S0" name="Scase" class="cas3"></div>
+
+			<div id="S1" name="Scase" class="cas3"></div>
+
+			<div id="S2" name="Scase" class="cas3"></div>
+
+			<div id="S3" name="Scase" class="cas3"></div>
+
+		</div>
+	</div>
+		<!-- -->
+		<!-- -->
+		<!-- -->
+	<footer id="BBody" name="BBody">
+		
+		<div id="dF1" name="dF1" class="divFooter">
+		
+			<img src="./img/logo/signature.png" id="logo2" name="signature" class="logo">
+
+			<p id="pF1" name="pF1" class="FooterP"> Oriane VICECONTE (F2) - 2020 </p>
+			
+			<p id="pF2" name="pF2" class="FooterP"> Contact : o.viceconte@ludus-academie.com </p>
+
+		</div>
+	
+	</footer>
+
+
+</body>
+</html>
